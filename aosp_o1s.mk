@@ -14,43 +14,24 @@
 # limitations under the License.
 #
 
-#
-# All components inherited here go to system image
-#
+## Inherit from generic products, most specific first
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
-
-#
-# All components inherited here go to system_ext image
-#
-$(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_system_ext.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system_ext.mk)
-
-# All components inherited here go to product image
-#
-$(call inherit-product, vendor/hentai/build/product/hentai_product.mk)
-#
-# All components inherited here go to vendor image
-#
-# TODO(b/136525499): move *_vendor.mk into the vendor makefile later
-$(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_vendor.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_vendor.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 ## Inherit from o1s device
 $(call inherit-product, device/samsung/o1s/device.mk)
 
-## Inherit some common hOS stuff
-$(call inherit-product, vendor/hentai/config/common.mk)
+## Inherit some common PixelOS stuff
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
 ## Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-# Device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
+# Boot Animation
+TARGET_BOOT_ANIMATION_RES := 1080
 
 ## Device identifier, this must come after all inclusions
-PRODUCT_NAME := hentai_o1s
+PRODUCT_NAME := aosp_o1s
 PRODUCT_DEVICE := o1s
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-G991B
