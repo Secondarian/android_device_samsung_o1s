@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/hentai_o1s.mk
+    $(LOCAL_DIR)/lineage_o1s.mk
 
 COMMON_LUNCH_CHOICES := \
-    hentai_o1s-eng \
-    hentai_o1s-user \
-    hentai_o1s-userdebug
+    lineage_o1s-eng \
+    lineage_o1s-user \
+    lineage_o1s-userdebug
